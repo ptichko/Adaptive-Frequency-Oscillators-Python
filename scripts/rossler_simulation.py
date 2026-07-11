@@ -91,6 +91,7 @@ def run():
     line6, = ax6.plot([], [], color='#808080', linewidth=0.25)
     dot6, = ax6.plot([], [], '.', markersize=5, color='#7E2F8E')
     ax6.set_xlim([t0, tend])
+    ax6.set_ylim([-200, 200])
     ax6.set_ylabel('y')
     ax6.set_xlabel('Time')
     ax6.set_title('Oscillation (y component)')
