@@ -67,6 +67,7 @@ def run():
 
     # %% Animated GIF
     fig2 = plt.figure(figsize=(5, 8))
+    fig2.subplots_adjust(hspace=0.5)
     ax4 = fig2.add_subplot(3, 1, 1, projection='3d')
     line4, = ax4.plot([], [], [], color='#808080', linewidth=0.25)
     dot4, = ax4.plot([], [], [], '.', markersize=5, color='#7E2F8E')

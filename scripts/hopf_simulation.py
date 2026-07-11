@@ -116,6 +116,7 @@ def run():
     gif_stop = np.searchsorted(t_out, 145)
 
     fig6, (ax6a, ax6b, ax6c) = plt.subplots(3, 1, figsize=(5, 8))
+    fig6.subplots_adjust(hspace=0.5)
     line6a, = ax6a.plot([], [], color='#808080', linewidth=0.25)
     dot6a, = ax6a.plot([], [], '.', markersize=20, color='#7E2F8E')
     ax6a.set_xlim(-1.5, 1.5)
