@@ -15,6 +15,10 @@ from adafreq import rossler
 
 Fs_ode = 20
 
+FONT_TITLE = 14
+FONT_LABEL = 12
+FONT_TICK = 11
+
 
 def run():
     t0, tend = 0, 500
@@ -26,7 +30,7 @@ def run():
 
     sol = solve_ivp(
         lambda t, x: rossler(t, x, a, b, c, e, F, F_t),
-        [t0, tend], [1, 0, 0, w0],         method='LSODA',
+        [t0, tend], [1, 0, 0, w0], method='LSODA',
         t_eval=np.linspace(t0, tend, 10000),
         rtol=1e-6, atol=1e-8
     )
@@ -40,27 +44,32 @@ def run():
     ax1.plot(t_out, y_out[3], 'black')
     ax1.set_xlim([t0, tend])
     ax1.set_ylim([10, 32])
-    ax1.set_ylabel('W (Angular Frequency)')
-    ax1.set_title('Adaptive-Frequency Rossler Strange Attractor')
+    ax1.set_ylabel('W (Angular Frequency)', fontsize=FONT_LABEL)
+    ax1.set_title('Adaptive-Frequency Rossler Strange Attractor', fontsize=FONT_TITLE)
+    ax1.tick_params(labelsize=FONT_TICK)
 
     ax2_r = ax2.twinx()
     ax2_r.plot(t_out, F_out, 'k--', linewidth=1.5, label='F')
     ax2_r.set_ylim([-2, 2])
-    ax2_r.set_ylabel('F')
+    ax2_r.set_ylabel('F', fontsize=FONT_LABEL)
+    ax2_r.tick_params(labelsize=FONT_TICK)
     ax2.plot(t_out, y_out[0], linewidth=2, color='#7E2F8E', label='X')
     ax2.set_ylim([-2, 2])
     ax2.set_xlim([0, 2])
-    ax2.set_ylabel('X')
+    ax2.set_ylabel('X', fontsize=FONT_LABEL)
+    ax2.tick_params(labelsize=FONT_TICK)
 
     ax3_r = ax3.twinx()
     ax3_r.plot(t_out, F_out, 'k--', linewidth=1.5)
     ax3_r.set_ylim([-2, 2])
-    ax3_r.set_ylabel('F')
+    ax3_r.set_ylabel('F', fontsize=FONT_LABEL)
+    ax3_r.tick_params(labelsize=FONT_TICK)
     ax3.plot(t_out, y_out[0], linewidth=2, color='#7E2F8E')
     ax3.set_ylim([-200, 200])
     ax3.set_xlim([498, 500])
-    ax3.set_xlabel('Time')
-    ax3.set_ylabel('X')
+    ax3.set_xlabel('Time', fontsize=FONT_LABEL)
+    ax3.set_ylabel('X', fontsize=FONT_LABEL)
+    ax3.tick_params(labelsize=FONT_TICK)
 
     fig1.tight_layout()
     fig1.savefig('figures/rossler_static.png', dpi=150, bbox_inches='tight')
@@ -74,10 +83,11 @@ def run():
     ax4.set_xlim([-200, 200])
     ax4.set_ylim([-200, 200])
     ax4.set_zlim([0, 2500])
-    ax4.set_xlabel('x')
-    ax4.set_ylabel('y')
-    ax4.set_zlabel('z')
-    ax4.set_title('Phase Space')
+    ax4.set_xlabel('x', fontsize=FONT_LABEL)
+    ax4.set_ylabel('y', fontsize=FONT_LABEL)
+    ax4.set_zlabel('z', fontsize=FONT_LABEL)
+    ax4.set_title('Phase Space', fontsize=FONT_TITLE)
+    ax4.tick_params(labelsize=FONT_TICK)
 
     ax5 = fig2.add_subplot(3, 1, 2)
     line5, = ax5.plot([], [], color='#808080', linewidth=0.25)
@@ -85,17 +95,19 @@ def run():
     ax5.set_xlim([t0, tend])
     ax5.set_ylim([15, 32.5])
     ax5.axhline(20, color='k', linestyle='--')
-    ax5.set_ylabel('w')
-    ax5.set_title('Frequency Adaptation')
+    ax5.set_ylabel('w', fontsize=FONT_LABEL)
+    ax5.set_title('Frequency Adaptation', fontsize=FONT_TITLE)
+    ax5.tick_params(labelsize=FONT_TICK)
 
     ax6 = fig2.add_subplot(3, 1, 3)
     line6, = ax6.plot([], [], color='#808080', linewidth=0.25)
     dot6, = ax6.plot([], [], '.', markersize=5, color='#7E2F8E')
     ax6.set_xlim([t0, tend])
     ax6.set_ylim([-200, 200])
-    ax6.set_ylabel('y')
-    ax6.set_xlabel('Time')
-    ax6.set_title('Oscillation (y component)')
+    ax6.set_ylabel('y', fontsize=FONT_LABEL)
+    ax6.set_xlabel('Time', fontsize=FONT_LABEL)
+    ax6.set_title('Oscillation (y component)', fontsize=FONT_TITLE)
+    ax6.tick_params(labelsize=FONT_TICK)
 
     n_total = len(t_out)
 
@@ -109,7 +121,7 @@ def run():
         dot5.set_data([t_out[k]], [y_out[3, k]])
         line6.set_data(t_out[:k], y_out[1, :k])
         dot6.set_data([t_out[k]], [y_out[1, k]])
-        fig2.suptitle(f'Step {k}')
+        fig2.suptitle(f'Step {k}', fontsize=FONT_TITLE)
         return line4, dot4, line5, dot5, line6, dot6
 
     n_frames = int(n_total // 20)
