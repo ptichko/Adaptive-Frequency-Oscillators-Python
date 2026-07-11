@@ -8,7 +8,7 @@ The oscillator's natural frequency automatically adapts to match the frequency o
 
 ### Hopf Oscillator: Phase Space, Frequency Adaptation, and Input Tracking
 
-![Hopf oscillator animation](figures/hopf_phasep.gif)
+![Hopf oscillator animation](Figures/hopf_phasep.gif)
 
 ## Requirements
 

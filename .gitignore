@@ -10,3 +10,5 @@ build/
 *.egg
 .eggs/
 figures/*.png
+Figures/*.png
+Figures/*.fig
