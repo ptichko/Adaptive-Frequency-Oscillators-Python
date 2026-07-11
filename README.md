@@ -6,6 +6,10 @@ Python implementation of adaptive-frequency oscillators based on dynamic Hebbian
 
 The oscillator's natural frequency automatically adapts to match the frequency of an external periodic input signal via a Hebbian learning rule -- no explicit frequency detection is needed.
 
+### Hopf Oscillator: Phase Space, Frequency Adaptation, and Input Tracking
+
+![Hopf oscillator animation](figures/hopf_phasep.gif)
+
 ## Requirements
 
 - Python 3.8+

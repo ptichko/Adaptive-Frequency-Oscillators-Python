@@ -9,5 +9,5 @@ dist/
 build/
 *.egg
 .eggs/
-*.gif
 figures/
+!figures/hopf_phasep.gif
